@@ -1,11 +1,15 @@
-import mongoose from 'mongoose'
+import { connect } from 'mongoose'
 import colors from 'colors'
 import 'dotenv/config'
 import app from './app'
 
 const db = process.env.DB_URL as string
-mongoose
-  .connect(db, {})
+
+async function run() {
+  await connect(db)
+}
+
+run()
   .then(() => {
     console.log(colors.magenta.bold(`Database connection succesfull`))
   })
