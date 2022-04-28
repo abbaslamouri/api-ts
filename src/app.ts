@@ -1,17 +1,16 @@
 import express, { Application, Request, Response, NextFunction } from 'express'
-import Product from './models/product'
+import categoryRouter from './routes/categories'
 
 const app: Application = express()
 app.use(express.json({ limit: '1000kb' }))
 app.use(express.urlencoded({ extended: true }))
 
-app.get('/', async (req: Request, res: Response, next: NextFunction) => {
-  const products = await Product.find()
-  console.log(products)
-  // const docs = await features.query.explain()
+
+app.use('/api/v1/categories', categoryRouter)
+app.get('/api/v1/ping', async (req: Request, res: Response) => {
   res.status(200).json({
     status: 'success',
-    products,
+    message: 'pong',
   })
 })
 
