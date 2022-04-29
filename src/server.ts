@@ -13,7 +13,7 @@ const port = process.env.PORT ? Number(process.env.PORT) : 5000
 // }
 
 mongoose
-  .connect(dbUrl)
+  .connect(dbUrl, {dbName: process.env.DB_NAME})
   .then(() => {
     console.log(colors.magenta.bold(`Database connection succesfull`))
     app.listen(port, () => {

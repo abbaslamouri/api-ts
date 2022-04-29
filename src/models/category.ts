@@ -57,13 +57,13 @@ schema.pre('save', function (next) {
 schema.pre(/^find/, function (next) {
   this.populate({
     path: 'parent',
-    select: 'name slug',
+    // select: 'name slug',
   })
   this.populate({
     path: 'gallery',
-    select: 'name slug path url mimetyp',
+    // select: 'name slug path url mimetype',
   })
-  
+
   next()
 })
 

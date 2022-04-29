@@ -16,7 +16,7 @@ const fetchAll = (MongooseModel: Model<ICategory>) =>
   asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
     const docs = await MongooseModel.find()
     res.status(200).json({
-      status: 'succes',
+      status: 'success',
       docs,
     })
   })
@@ -95,15 +95,15 @@ const fetchAll = (MongooseModel: Model<ICategory>) =>
 //     })
 //   })
 
-// exports.createDoc = (Model) =>
-//   asyncHandler(async (req, res, next) => {
-//     console.log('CRREATING', req.body)
-//     const doc = await Model.create(req.body)
-//     if (!doc) return next(new AppError(`We can't create document ${req.body.name}`, 404))
-//     res.status(201).json({
-//       status: 'success',
-//       doc,
-//     })
-//   })
+const createDoc = (MongooseModel: Model<ICategory>) =>
+  asyncHandler(async (req: Request, res: Response, next: NextFunction) => {
+    console.log('CRREATING', req.body)
+    const doc = await MongooseModel.create(req.body)
+    // if (!doc) return next(new AppError(`We can't create document ${req.body.name}`, 404))
+    res.status(201).json({
+      status: 'success',
+      doc,
+    })
+  })
 
-export { fetchAll }
+export { fetchAll, createDoc }

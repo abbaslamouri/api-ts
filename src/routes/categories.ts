@@ -1,11 +1,11 @@
 import { Router } from 'express'
 import { Category } from '../models/category'
-import { fetchAll } from '../controllers/factory'
+import { fetchAll, createDoc } from '../controllers/factory'
 
 const router = Router()
 
 router.route('/').get(fetchAll(Category))
-// router.route('/').post(createDoc(Model))
+router.route('/').post(createDoc(Category))
 // router.route('/:id').delete(deleteDoc(Model))
 // router.route('/:id').patch(updateDoc(Model))
 
