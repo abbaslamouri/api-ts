@@ -1,8 +1,8 @@
-import express from 'express'
-import {Category} from '../models/category'
+import { Router } from 'express'
+import { Category } from '../models/category'
 import { fetchAll } from '../controllers/factory'
 
-const router = express.Router()
+const router = Router()
 
 router.route('/').get(fetchAll(Category))
 // router.route('/').post(createDoc(Model))

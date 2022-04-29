@@ -1,11 +1,10 @@
-import { Request, Response, NextFunction } from 'express'
+import { RequestHandler, Request, Response, NextFunction } from 'express'
 import { ICategory } from '../models/category'
 import { Model } from 'mongoose'
 
 // const APIFeatures = require('../utils/APIFeatures')
 // const AppError = require('../utils/AppError')
 import asyncHandler from '../utils/asyncHandler'
-import { model } from 'mongoose'
 
 // exports.checkId = (req, res, next, val) => {
 //   console.log(`Document id is ${val}`)
